@@ -1,86 +1,66 @@
 .footer {
-  background-color: var(--dark-color);
-  color: white;
-  padding: 3rem 0 1.5rem;
+  background: var(--bg-white);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
 }
 
 .footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.footer-logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .footer-links {
   display: flex;
+  justify-content: center;
   gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
-.footer-links a {
-  color: #cbd5e1;
+.footer-link {
   text-decoration: none;
-  transition: var(--transition);
+  color: var(--text-light);
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
-  color: white;
+.footer-link:hover {
+  color: var(--primary);
 }
 
 .footer-social {
   display: flex;
-  gap: 1rem;
-}
-
-.footer-social a {
-  display: inline-flex;
-  align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: #334155;
-  color: white;
-  border-radius: 50%;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.social-link {
   text-decoration: none;
-  transition: var(--transition);
+  color: var(--primary);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
 }
 
-.footer-social a:hover {
-  background-color: var(--primary-color);
-  transform: translateY(-3px);
+.social-link:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
 }
 
-.footer-bottom {
+.footer-copyright {
   text-align: center;
-  padding-top: 1.5rem;
-  border-top: 1px solid #334155;
-  color: #94a3b8;
-  font-size: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
 }
 
-.heart-icon {
-  color: #ef4444;
-  margin: 0 0.3rem;
-}
-
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .footer-links {
-    flex-direction: column;
-    gap: 1rem;
-  }
+.footer-copyright p {
+  color: var(--secondary);
+  font-size: 0.875rem;
+  margin: 0;
 }
