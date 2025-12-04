@@ -1,64 +1,48 @@
 import React from 'react';
-import { FaCode, FaPuzzlePiece, FaGraduationCap, FaUsers } from 'react-icons/fa';
-import './../styles/About.css';
+import '../styles/About.css';
 
-const About = () => {
+function About() {
   const features = [
     {
-      id: 1,
-      icon: <FaCode />,
-      title: 'Clean Code',
-      description: 'Writing maintainable, scalable code that follows best practices and design patterns.'
+      title: "Clean Code",
+      description: "Writing maintainable, scalable code that follows best practices and design patterns."
     },
     {
-      id: 2,
-      icon: <FaPuzzlePiece />,
-      title: 'Problem Solving',
-      description: 'Tackling complex challenges with creative and efficient solutions.'
+      title: "Problem Solving",
+      description: "Tackling complex challenges with creative and efficient solutions."
     },
     {
-      id: 3,
-      icon: <FaGraduationCap />,
-      title: 'Continuous Learning',
-      description: 'Always exploring new technologies and staying updated with industry trends.'
+      title: "Continuous Learning",
+      description: "Always exploring new technologies and staying updated with industry trends."
     },
     {
-      id: 4,
-      icon: <FaUsers />,
-      title: 'Collaboration',
-      description: 'Working effectively in teams and communicating technical concepts clearly.'
+      title: "Collaboration",
+      description: "Working effectively in teams and communicating technical concepts clearly."
     }
   ];
 
   return (
-    <section id="about" className="about">
-      <div className="container">
-        <h1 className="section-title">About Me</h1>
-        <div className="about-content">
-          <p className="about-text">
-            I'm a passionate software engineer with expertise in React, JavaScript, HTML, CSS, and Python. 
-            I specialize in building modern, responsive web applications that deliver exceptional user experiences.
-          </p>
-          
-          <div className="about-features">
-            {features.map((feature, index) => (
-              <div 
-                key={feature.id} 
-                className="feature-card animate-fade"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="feature-icon">
-                  {feature.icon}
-                </div>
-                <h3 className="feature-title">{feature.title}</h3>
-                <p className="feature-description">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+    <section id="about" className="about-section">
+      <div className="section-header">
+        <h2>About Me</h2>
+        <p>
+          I'm a passionate software engineer with expertise in React, JavaScript, HTML, CSS, and Python. 
+          I specialize in building modern, responsive web applications that deliver exceptional user experiences.
+        </p>
       </div>
+
+      <div className="features-grid">
+        {features.map((feature, index) => (
+          <div key={index} className="feature-card">
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <hr className="section-divider" />
     </section>
   );
-};
+}
 
 export default About;
