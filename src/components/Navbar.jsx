@@ -1,69 +1,60 @@
-import React, { useState, useEffect } from 'react';
-import './../styles/Navbar.css';
+import React, { useState } from 'react';
+import '../styles/Navbar.css';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { id: 1, name: 'Home', href: '#home' },
-    { id: 2, name: 'About', href: '#about' },
-    { id: 3, name: 'Projects', href: '#projects' },
-    { id: 4, name: 'Skills', href: '#skills' },
-    { id: 5, name: 'Contact', href: '#contact' },
+  const navItems = [
+    { label: 'Home', href: '#home' },
+    { label: 'About', href: '#about' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Contact', href: '#contact' }
   ];
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="nav-container container">
-        <div className="logo">Maurice Mwangi</div>
-        
-        <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          {navLinks.map((link) => (
-            <li key={link.id}>
-              <a 
-                href={link.href} 
-                className="nav-link"
-                onClick={closeMenu}
-              >
-                {link.name}
-              </a>
-            </li>
+    <nav className="navbar">
+      <div className="nav-container">
+        <div className="nav-logo">
+          <span className="logo-text">Portfolio</span>
+        </div>
+
+        <div className="nav-links">
+          {navItems.map((item) => (
+            <a 
+              key={item.label} 
+              href={item.href}
+              className="nav-link"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.label}
+            </a>
           ))}
-        </ul>
-        
-        <div 
-          className={`hamburger ${isOpen ? 'active' : ''}`} 
-          onClick={toggleMenu}
+        </div>
+
+        <button 
+          className="menu-toggle"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span className={`menu-icon ${isMenuOpen ? 'open' : ''}`} />
+        </button>
+
+        <div className={`mobile-nav ${isMenuOpen ? 'open' : ''}`}>
+          {navItems.map((item) => (
+            <a 
+              key={item.label} 
+              href={item.href}
+              className="mobile-nav-link"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;
