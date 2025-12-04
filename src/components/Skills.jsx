@@ -1,103 +1,52 @@
 import React from 'react';
-import { 
-  FaDesktop, FaServer, FaDatabase, FaTools, FaCode,
-  FaReact, FaJs, FaHtml5, FaCss3Alt, FaPython, FaNodeJs, 
-  FaGitAlt, FaDocker, FaNpm, FaExchangeAlt, FaBolt,
-  FaMobileAlt, FaPalette, FaFire, FaCloud, FaCogs,
-  FaSyncAlt, FaCube
-} from 'react-icons/fa';
-import { 
-  SiDjango, SiFlask, SiPostgresql, SiMongodb, SiMysql, 
-  SiFirebase, SiSupabase, SiWebpack, SiTailwindcss
-} from 'react-icons/si';
-import './../styles/Skills.css';
+import '../styles/Skills.css';
 
-const Skills = () => {
+function Skills() {
   const skillCategories = [
     {
-      id: 1,
-      title: 'Frontend',
-      icon: <FaDesktop />,
-      skills: [
-        { name: 'React', icon: <FaReact /> },
-        { name: 'JavaScript (ES6+)', icon: <FaJs /> },
-        { name: 'HTML5', icon: <FaHtml5 /> },
-        { name: 'CSS3', icon: <FaCss3Alt /> },
-        { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
-        { name: 'Responsive Design', icon: <FaMobileAlt /> }
-      ]
+      category: "Frontend",
+      skills: ["React", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS", "Responsive Design"]
     },
     {
-      id: 2,
-      title: 'Backend',
-      icon: <FaServer />,
-      skills: [
-        { name: 'Python', icon: <FaPython /> },
-        { name: 'Node.js', icon: <FaNodeJs /> },
-        { name: 'Django', icon: <SiDjango /> },
-        { name: 'Flask', icon: <SiFlask /> },
-        { name: 'REST APIs', icon: <FaExchangeAlt /> },
-        { name: 'Express', icon: <FaBolt /> }
-      ]
+      category: "Backend",
+      skills: ["Python", "Node.js", "Django", "Rust", "REST APIs", "Express"]
     },
     {
-      id: 3,
-      title: 'Database',
-      icon: <FaDatabase />,
-      skills: [
-        { name: 'PostgreSQL', icon: <SiPostgresql /> },
-        { name: 'MongoDB', icon: <SiMongodb /> },
-        { name: 'SQLite', icon: <FaDatabase /> },
-        { name: 'MySQL', icon: <SiMysql /> },
-        { name: 'Firebase', icon: <SiFirebase /> },
-        { name: 'Supabase', icon: <SiSupabase /> }
-      ]
+      category: "Database",
+      skills: ["PostgreSQL", "MongoDB", "SQLite", "MySQL", "Firebase", "Supabase"]
     },
     {
-      id: 4,
-      title: 'Tools & Others',
-      icon: <FaTools />,
-      skills: [
-        { name: 'Git / GitHub', icon: <FaGitAlt /> },
-        { name: 'VS Code', icon: <FaCode /> },
-        { name: 'npm / pip', icon: <FaNpm /> },
-        { name: 'Docker', icon: <FaDocker /> },
-        { name: 'Webpack', icon: <SiWebpack /> },
-        { name: 'CI/CD', icon: <FaSyncAlt /> }
-      ]
+      category: "Tools & Others",
+      skills: ["Git / GitHub", "VS Code", "npm / pip", "Docker", "Webpack", "CI/CD"]
     }
   ];
 
   return (
-    <section id="skills" className="skills">
-      <div className="container">
-        <h1 className="section-title">Skills & Technologies</h1>
-        <p className="section-subtitle">
+    <section id="skills" className="skills-section">
+      <div className="section-header">
+        <h2>Skills & Technologies</h2>
+        <p>
           A comprehensive toolkit for building robust and scalable applications.
         </p>
-        
-        <div className="skills-grid">
-          {skillCategories.map((category, index) => (
-            <div 
-              key={category.id} 
-              className="skill-category animate-slide-left"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <h3>{category.icon} {category.title}</h3>
-              <ul className="skill-list">
-                {category.skills.map((skill, skillIndex) => (
-                  <li key={skillIndex}>
-                    <span className="skill-icon">{skill.icon}</span>
-                    <span className="skill-name">{skill.name}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+      </div>
+
+      <div className="skills-grid">
+        {skillCategories.map((category, index) => (
+          <div key={index} className="skill-category">
+            <h3>{category.category}</h3>
+            <ul className="skill-list">
+              {category.skills.map((skill, i) => (
+                <li key={i} className="skill-item">
+                  <span className="skill-bullet">•</span>
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
   );
-};
+}
 
 export default Skills;
