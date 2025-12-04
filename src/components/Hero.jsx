@@ -7,6 +7,7 @@ const Hero = () => {
       <div className="container">
         <div className="hero-content animate-fade">
           <h2 className="hero-subtitle">Welcome to my portfolio</h2>
+          <h1 className="hero-title">Maurice</h1>
           <h1 className="hero-title">Software Engineer</h1>
           <p className="hero-description">
             Full-stack developer specializing in React, JavaScript, HTML, CSS, and Python. 

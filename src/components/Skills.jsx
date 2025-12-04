@@ -1,11 +1,14 @@
 import React from 'react';
 import { 
-  FaDesktop, FaServer, FaDatabase, FaTools,
-  FaReact, FaJs, FaHtml5, FaCss3Alt, FaPython, FaNodeJs, FaGitAlt, FaDocker, FaNpm
+  FaDesktop, FaServer, FaDatabase, FaTools, FaCode,
+  FaReact, FaJs, FaHtml5, FaCss3Alt, FaPython, FaNodeJs, 
+  FaGitAlt, FaDocker, FaNpm, FaExchangeAlt, FaBolt,
+  FaMobileAlt, FaPalette, FaFire, FaCloud, FaCogs,
+  FaSyncAlt, FaCube
 } from 'react-icons/fa';
 import { 
   SiDjango, SiFlask, SiPostgresql, SiMongodb, SiMysql, 
-  SiFirebase, SiSupabase, SiVscode, SiWebpack, SiTailwindcss
+  SiFirebase, SiSupabase, SiWebpack, SiTailwindcss
 } from 'react-icons/si';
 import './../styles/Skills.css';
 
@@ -21,7 +24,7 @@ const Skills = () => {
         { name: 'HTML5', icon: <FaHtml5 /> },
         { name: 'CSS3', icon: <FaCss3Alt /> },
         { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
-        { name: 'Responsive Design', icon: <FaDesktop /> }
+        { name: 'Responsive Design', icon: <FaMobileAlt /> }
       ]
     },
     {
@@ -33,8 +36,8 @@ const Skills = () => {
         { name: 'Node.js', icon: <FaNodeJs /> },
         { name: 'Django', icon: <SiDjango /> },
         { name: 'Flask', icon: <SiFlask /> },
-        { name: 'REST APIs', icon: <FaServer /> },
-        { name: 'Express', icon: <FaNodeJs /> }
+        { name: 'REST APIs', icon: <FaExchangeAlt /> },
+        { name: 'Express', icon: <FaBolt /> }
       ]
     },
     {
@@ -56,11 +59,11 @@ const Skills = () => {
       icon: <FaTools />,
       skills: [
         { name: 'Git / GitHub', icon: <FaGitAlt /> },
-        { name: 'VS Code', icon: <SiVscode /> },
+        { name: 'VS Code', icon: <FaCode /> },
         { name: 'npm / pip', icon: <FaNpm /> },
         { name: 'Docker', icon: <FaDocker /> },
         { name: 'Webpack', icon: <SiWebpack /> },
-        { name: 'CI/CD', icon: <FaTools /> }
+        { name: 'CI/CD', icon: <FaSyncAlt /> }
       ]
     }
   ];
@@ -84,7 +87,8 @@ const Skills = () => {
               <ul className="skill-list">
                 {category.skills.map((skill, skillIndex) => (
                   <li key={skillIndex}>
-                    {skill.icon} {skill.name}
+                    <span className="skill-icon">{skill.icon}</span>
+                    <span className="skill-name">{skill.name}</span>
                   </li>
                 ))}
               </ul>

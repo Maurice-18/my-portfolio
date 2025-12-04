@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container container">
-        <div className="logo">DevPortfolio</div>
+        <div className="logo">Maurice Mwangi</div>
         
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
           {navLinks.map((link) => (
