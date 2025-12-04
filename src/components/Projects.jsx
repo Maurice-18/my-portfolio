@@ -1,85 +1,71 @@
 import React from 'react';
-import { FaCode, FaExternalLinkAlt } from 'react-icons/fa';
-import './../styles/Projects.css';
+import '../styles/Projects.css';
 
-const Projects = () => {
+function Projects() {
   const projects = [
     {
-      id: 1,
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with payment integration, inventory management, and real-time analytics built with React and Python.',
-      tags: ['React', 'JavaScript', 'Python', 'CSS'],
-      codeLink: '#',
-      demoLink: '#'
+      title: "E-Commerce Platform",
+      description: "Full-stack e-commerce solution with payment integration, inventory management, and real-time analytics built with React and Python.",
+      technologies: ["React", "JavaScript", "Python", "CSS"],
+      github: "#",
+      demo: "#"
     },
     {
-      id: 2,
-      title: 'Task Management Dashboard',
-      description: 'Interactive task management application with drag-and-drop functionality, built with React and styled with modern CSS.',
-      tags: ['React', 'HTML', 'CSS', 'JavaScript'],
-      codeLink: '#',
-      demoLink: '#'
+      title: "Task Management Dashboard",
+      description: "Interactive task management application with drag-and-drop functionality, built with React and styled with modern CSS.",
+      technologies: ["React", "HTML", "CSS", "JavaScript"],
+      github: "#",
+      demo: "#"
     },
     {
-      id: 3,
-      title: 'Data Analytics Tool',
-      description: 'Python-powered analytics platform with React frontend for real-time data visualization and reporting.',
-      tags: ['Python', 'React', 'JavaScript', 'HTML'],
-      codeLink: '#',
-      demoLink: '#'
+      title: "Data Analytics Tool",
+      description: "Python-powered analytics platform with React frontend for real-time data visualization and reporting.",
+      technologies: ["Python", "React", "JavaScript", "HTML"],
+      github: "#",
+      demo: "#"
     }
   ];
 
   return (
-    <section id="projects" className="projects">
-      <div className="container">
-        <h1 className="section-title">Featured Projects</h1>
-        <p className="section-subtitle">
+    <section id="projects" className="projects-section">
+      <div className="section-header">
+        <h2>Featured Projects</h2>
+        <p>
           A selection of projects that showcase my skills and experience in building modern applications.
         </p>
-        
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <div 
-              key={project.id} 
-              className="project-card animate-zoom"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="project-header">
-                <h3>{project.title}</h3>
-              </div>
-              <div className="project-body">
-                <p>{project.description}</p>
-                <div className="project-tags">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="tag">{tag}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="project-footer">
-                <a 
-                  href={project.codeLink} 
-                  className="project-link" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <FaCode /> Code
-                </a>
-                <a 
-                  href={project.demoLink} 
-                  className="project-link" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <FaExternalLinkAlt /> Live Demo
-                </a>
-              </div>
+      </div>
+
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <div key={index} className="project-card">
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+            
+            <div className="tech-tags">
+              {project.technologies.map((tech, i) => (
+                <span key={i} className="tech-tag">{tech}</span>
+              ))}
             </div>
-          ))}
-        </div>
+
+            <div className="project-links">
+              <a href={project.github} className="project-link">
+                <span>Code</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+              <a href={project.demo} className="project-link">
+                <span>Demo</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
-};
+}
 
 export default Projects;
