@@ -5,7 +5,7 @@ function Hero() {
   return (
     <section id="home" className="hero-section">
       <div className="hero-content">
-        <h1>Welcome to my portfolio</h1>
+        <h1>Maurice Muita</h1>
         <h2 className="hero-subtitle">Software Engineer</h2>
         <p className="hero-description">
           Full-stack developer specializing in React, JavaScript, HTML, CSS, and Python. 
